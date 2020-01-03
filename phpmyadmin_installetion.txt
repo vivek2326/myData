@@ -1,0 +1,55 @@
+
+" Instaletion process of phpmyadmin Package """
+
+commands step by step :
+	
+	- $ sudo apt-get update
+	- $ sudo apt-get install phpmyadmin php-mbstring php-gettext / $ sudo apt-get install -y phpmyadmin
+	  (after this command they will show an confirmation page )
+	- In the phpMyAdmin Package configuration page, Press SPACE to put a star [*] beside apache2, then press TAB to highlight OK and press ENTER.
+	- Select Yes and press ENTER to install and configure the database.
+	  (they will ask you for password)
+	- The MySQL application password is only used internally by phpMyAdmin to communicate with MySQL. You can leave this blank and a password will be generated automatically.
+	  so insted leave it blank we suggest you fill with a specific password.
+	- now Enable the PHP mcrypt and mbstring extensions:
+	- $ sudo phpenmod mcrypt
+	- $ sudo phpenmod mbstring
+	  (we also need to install apache2 )
+	- $ sudo apt-get update -y  #using the -y option will automatically accept the conditions of the source updates
+	- $ sudo apt-get install apache2 -y #install apache
+	- $ sudo systemctl restart apache2
+	  (if they showing any error then stop your apache first and start it again)
+	- $ sudo systemctl start apache2
+	- $ sudo systemctl stop apache2
+
+	-  Apache2 confi
+edit settings:
+	
+	- DATABASES = {
+			   'default': {
+			      'ENGINE': 'django.db.backends.mysql',
+			      'NAME': 'mydata',  # your database name 
+			      'USER': 'root',
+			      'PASSWORD': '', 
+			      'HOST': '127.0.0.1', # used local host 
+			      'PORT': '3306',  
+			   }
+		      }
+
+
+	- after connectivity don't forgot to migrations process.
+
+
+Creating a SQL database:
+
+
+	search on web " localhost/phpmyadmin/"
+		1. On the webpage phpMyAdmin, we will have to create a database for our project.
+		2. Click on the New button as shown there. Then, just fill the desired name of your database and click on create button.
+		3. it will add your database in the list.
+		4. then create a table name.
+
+
+Don't forgot to migration .
+
+
